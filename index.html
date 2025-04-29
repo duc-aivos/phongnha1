@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Phong Nha Explorer - Travel Guides & Tours</title>
+    <meta name="description" content="Your ultimate e-commerce travel guide to Phong Nha-Kẻ Bàng National Park. Discover destination highlights, travel tips, accommodations, local attractions, guided tours, and inspiring travel stories." />
+    <meta name="keywords" content="Phong Nha, Kẻ Bàng, travel guide, tours, accommodations, travel tips, blog, e-commerce" />
+    <meta name="author" content="Phong Nha Explorer" />
+
+    <!-- Font Awesome if you need it
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css">
+  -->
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/>
+    <!--Replace with your tailwind.css once created-->
+    <link
+      href="https://unpkg.com/@tailwindcss/custom-forms/dist/custom-forms.min.css"
+      rel="stylesheet"
+    />
+    <!--Tailwind Custom Forms - use to standardise form fields - https://github.com/tailwindcss/custom-forms-->
+
+    <style>
+      @import url("https://rsms.me/inter/inter.css");
+      html {
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+          "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+          "Noto Color Emoji";
+      }
+
+      .gradient {
+        background-image: linear-gradient(-225deg, #cbbacc 0%, #2580b3 100%);
+      }
+
+      button,
+      .gradient2 {
+        background-color: #f39f86;
+        background-image: linear-gradient(315deg, #f39f86 0%, #f9d976 74%);
+      }
+
+      /* Browser mockup code */
+      .browser-mockup {
+        border-top: 2em solid rgba(230, 230, 230, 0.7);
+        position: relative;
+        height: 60vh;
+      }
+
+      .browser-mockup > * {
+        display: block;
+      }
+
+      /* Custom CSS for images in various sections */
+      .hero-img {
+        max-width: 100%;
+        height: auto;
+      }
+      .destination-img {
+        max-width: 45%;
+        height: auto;
+        margin: 1rem;
+        border-radius: 0.5rem;
+      }
+      .tip-img {
+        max-width: 30%;
+        height: auto;
+        margin: 1rem;
+        border-radius: 0.5rem;
+      }
+      .tour-img {
+        max-width: 45%;
+        height: auto;
+        margin: 1rem;
+        border-radius: 0.5rem;
+      }
+      .blog-img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 0.5rem;
+      }
+    </style>
+
+    <!-- N8n chat
+      <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+      <script type="module">
+        import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+        createChat({
+          webhookUrl: process.env.WEBHOOK_URL
+        });
+      </script>
+    -->
+    
+  </head>
+
+  <body class="gradient leading-relaxed tracking-wide flex flex-col">
+    <!--Nav-->
+    <nav id="header" class="w-full z-30 top-0 text-white py-1 lg:py-6">
+      <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-2 lg:py-6">
+        <div class="pl-4 flex items-center">
+          <a class="text-white no-underline hover:no-underline font-bold text-2xl lg:text-4xl" href="#">
+            <svg class="h-6 w-6 inline-block fill-current text-yellow-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+              <path d="M13 8V0L8.11 5.87 3 12h4v8L17 8h-4z" />
+            </svg>
+            Phong Nha Explorer
+          </a>
+        </div>
+
+        <div class="block lg:hidden pr-4">
+          <button id="nav-toggle" class="flex items-center px-3 py-2 border rounded text-gray-500 border-gray-600 hover:text-gray-800 hover:border-green-500 appearance-none focus:outline-none">
+            <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <title>Menu</title>
+              <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+            </svg>
+          </button>
+        </div>
+
+        <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block mt-2 lg:mt-0 text-black p-4 lg:p-0 z-20" id="nav-content">
+          <ul class="list-reset lg:flex justify-end flex-1 items-center">
+            <li class="mr-3">
+              <a class="inline-block py-2 px-4 text-black font-bold no-underline" href="#destinations">Highlights</a>
+            </li>
+            <li class="mr-3">
+              <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="#tips">Travel Tips</a>
+            </li>
+            <li class="mr-3">
+              <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="#tours">Guided Tours</a>
+            </li>
+            <li class="mr-3">
+              <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="#blog">Travel Blog</a>
+            </li>
+            <li class="mr-3">
+              <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="#accommodations">Accommodations</a>
+            </li>
+          </ul>
+          <button id="navAction" class="mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75">
+            Book Now
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!--Hero Section-->
+    <div class="container mx-auto h-screen flex flex-col justify-center items-center text-center px-3 lg:px-0">
+      <h1 class="my-4 text-3xl md:text-4xl lg:text-6xl font-black leading-tight text-gray-900">
+        Explore Phong Nha-Kẻ Bàng National Park
+      </h1>
+      <p class="leading-normal text-gray-800 text-base md:text-xl lg:text-2xl mb-8">
+        Your ultimate travel guide to one of the world’s most breathtaking natural wonders.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <button class="hover:underline text-gray-800 font-extrabold rounded py-4 px-8 shadow-lg w-48">
+          Book Tours
+        </button>
+        <button class="hover:underline bg-white text-gray-800 font-extrabold rounded py-4 px-8 shadow-lg w-48">
+          Purchase Guides
+        </button>
+      </div>
+      <div class="mt-8">
+        <img class="hero-img rounded shadow-xl" src="https://images.unsplash.com/photo-1698658989153-a60a73549b4a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MzQ0MzV8MHwxfHNlYXJjaHw5fHxQaG9uZyUyME5oYXxlbnwwfHx8fDE3NDU4OTIwMjJ8MA&ixlib=rb-4.0.3&q=80&w=1080" alt="Wooden boat trip along the Son River into Phong Nha Cave in the Phong Nha - Ke Bang National Park" />
+      </div>
+    </div>
+
+    <!-- Destination Highlights Section -->
+    <section id="destinations" class="bg-white border-b py-12">
+      <div class="container mx-auto px-4">
+        <h2 class="w-full my-2 text-4xl font-black leading-tight text-center text-gray-800">
+          Destination Highlights
+        </h2>
+        <div class="w-full mb-4">
+          <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
+        </div>
+        <div class="flex flex-wrap justify-center items-center">
+          <div class="p-4">
+            <img class="destination-img" src="https://images.unsplash.com/photo-1554285859-6ac081ea54b9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MzQ0MzV8MHwxfHNlYXJjaHwxfHxQaG9uZyUyME5oYXxlbnwwfHx8fDE3NDU4OTIwMjJ8MA&ixlib=rb-4.0.3&q=80&w=1080" alt="Cave with narrow opening in darkness" />
+            <p class="text-center text-gray-700 text-sm mt-2">Experience the mysterious caves – from the well-lit entrances to the enchanting darkness beyond.</p>
+          </div>
+          <div class="p-4">
+            <img class="destination-img" src="https://images.unsplash.com/photo-1743065132093-be016a9f5f3f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MzQ0MzV8MHwxfHNlYXJjaHwxMHx8UGhvbmclMjBOaGF8ZW58MHx8fHwxNzQ1ODkyMDIyfDA&ixlib=rb-4.0.3&q=80&w=1080" alt="Misty mountainous landscape framed by trees" />
+            <p class="text-center text-gray-700 text-sm mt-2">Marvel at nature’s artistry with misty mountains and ancient trees surrounding the park.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Travel Tips Section -->
+    <section id="tips" class="bg-gray-100 border-b py-12">
+      <div class="container mx-auto px-4">
+        <h2 class="w-full my-2 text-4xl font-black leading-tight text-center text-gray-800">
+          Travel Tips
+        </h2>
+        <div class="w-full mb-4">
+          <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
+        </div>
+        <div class="flex flex-wrap justify-center items-center">
+          <div class="p-4">
+            <img class="tip-img" src="https://images.unsplash.com/photo-1680431751332-0c54f406cc27?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MzQ0MzV8MHwxfHNlYXJjaHwyfHxQaG9uZyUyME5oYXxlbnwwfHx8fDE3NDU4OTIwMjJ8MA&ixlib=rb-4.0.3&q=80&w=1080" alt="Serene statue of a buddha" />
+            <p class="text-center text-gray-700 text-sm mt-2">Respect local traditions and savor quiet moments of reflection at sacred spots.</p>
+          </div>
+          <div class="p-4">
+            <img class="tip-img" src="https://images.unsplash.com/photo-1593522986347-f0346a13221f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MzQ0MzV8MHwxfHNlYXJjaHwzfHxQaG9uZyUyME5oYXxlbnwwfHx8fDE3NDU4OTIwMjJ8MA&ixlib=rb-4.0.3&q=80&w=1080" alt="Woman in water holding white string lights" />
+            <p class="text-center text-gray-700 text-sm mt-2">Pack smart, stay hydrated, and embrace the unexpected magic of the park.</p>
+          </div>
+          <div class="p-4">
+            <img class="tip-img" src="https://images.unsplash.com/photo-1743065131724-3675c55e32fc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MzQ0MzV8MHwxfHNlYXJjaHw4fHxQaG9uZyUyME5oYXxlbnwwfHx8fDE3NDU4OTIwMjJ8MA&ixlib=rb-4.0.3&q=80&w=1080" alt="Woman on a scooter admiring the scenery" />
+            <p class="text-center text-gray-700 text-sm mt-2">Explore by scooter for a flexible, local experience while enjoying scenic vistas.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Accommodations Section -->
+    <section id="accommodations" class="bg-white border-b py-12">
+      <div class="container mx-auto px-4">
+        <h2 class="w-full my-2 text-4xl font-black leading-tight text-center text-gray-800">
+          Accommodations
+        </h2>
+        <div class="w-full mb-4">
+          <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
+        </div>
+        <div class="flex flex-wrap justify-center">
+          <div class="w-full md:w-2/3 p-6">
+            <p class="text-gray-600 text-lg">
+              From cozy homestays to luxurious resorts, find the perfect accommodation to recharge after your adventures. Our curated listings offer the best local hospitality, ensuring that your stay near Phong Nha-Kẻ Bàng National Park is as memorable as the exploration itself.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Local Attractions Section -->
+    <section id="attractions" class="bg-gray-100 border-b py-12">
+      <div class="container mx-auto px-4">
+        <h2 class="w-full my-2 text-4xl font-black leading-tight text-center text-gray-800">
+          Local Attractions
+        </h2>
+        <div class="w-full mb-4">
+          <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
+        </div>
+        <div class="flex flex-wrap justify-center items-center">
+          <div class="p-4">
+            <img class="destination-img" src="https://images.unsplash.com/photo-1675003810632-139ed8eed684?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MzQ0MzV8MHwxfHNlYXJjaHw2fHxQaG9uZyUyME5oYXxlbnwwfHx8fDE3NDU4OTIwMjJ8MA&ixlib=rb-4.0.3&q=80&w=1080" alt="U Bo peak" />
+            <p class="text-center text-gray-700 text-sm mt-2">Discover breathtaking landmarks like U Bo Peak and experience the authentic charm of rural Vietnam.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Guided Tours Section -->
+    <section id="tours" class="bg-white border-b py-12">
+      <div class="container mx-auto px-4">
+        <h2 class="w-full my-2 text-4xl font-black leading-tight text-center text-gray-800">
+          Guided Tours
+        </h2>
+        <div class="w-full mb-4">
+          <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
+        </div>
+        <div class="flex flex-wrap justify-center items-center">
+          <div class="p-4">
+            <img class="tour-img" src="https://images.unsplash.com/photo-1711048070621-537d50adb5d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MzQ0MzV8MHwxfHNlYXJjaHw1fHxQaG9uZyUyME5oYXxlbnwwfHx8fDE3NDU4OTIwMjJ8MA&ixlib=rb-4.0.3&q=80&w=1080" alt="Boats on water for guided tour" />
+            <p class="text-center text-gray-700 text-sm mt-2">Enjoy scenic boat rides and expert-led excursions into Phong Nha’s iconic caves.</p>
+          </div>
+          <div class="p-4">
+            <img class="tour-img" src="https://images.unsplash.com/photo-1595529485479-662599861417?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MzQ0MzV8MHwxfHNlYXJjaHw3fHxQaG9uZyUyME5oYXxlbnwwfHx8fDE3NDU4OTIwMjJ8MA&ixlib=rb-4.0.3&q=80&w=1080" alt="Guided ride to Phong Nha Cave" />
+            <p class="text-center text-gray-700 text-sm mt-2">Join our knowledgeable guides to unlock the secrets behind Phong Nha Cave and beyond.</p>
+          </div>
+        </div>
+        <div class="text-center mt-6">
+          <button class="hover:underline gradient2 text-gray-800 font-extrabold rounded py-4 px-8 shadow-lg">
+            Book Your Tour
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Travel Blog Section -->
+    <section id="blog" class="bg-gray-100 border-b py-12">
+      <div class="container mx-auto px-4">
+        <h2 class="w-full my-2 text-4xl font-black leading-tight text-center text-gray-800">
+          Travel Blog
+        </h2>
+        <div class="w-full mb-4">
+          <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
+        </div>
+        <div class="flex flex-wrap justify-center items-center">
+          <div class="w-full md:w-2/3 p-6">
+            <h3 class="text-3xl text-gray-800 font-bold mb-3">A Journey into the Heart of Vietnam</h3>
+            <p class="text-gray-600 mb-8 text-lg">
+              Read inspiring travel stories from adventurers who have explored the hidden gems of Phong Nha-Kẻ Bàng National Park. Discover tips, personal reflections, and unique experiences that will ignite your wanderlust.
+            </p>
+          </div>
+          <div class="w-full md:w-1/2 p-6">
+            <img class="blog-img" src="https://images.unsplash.com/photo-1593522986347-f0346a13221f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MzQ0MzV8MHwxfHNlYXJjaHwzfHxQaG9uZyUyME5oYXxlbnwwfHx8fDE3NDU4OTIwMjJ8MA&ixlib=rb-4.0.3&q=80&w=1080" alt="Travel story image: woman in water with string lights" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing / Purchase Section -->
+    <section class="bg-white border-b py-12">
+      <div class="container mx-auto px-4">
+        <h2 class="w-full my-2 text-4xl font-black leading-tight text-center text-gray-800">
+          Tours & Guides Pricing
+        </h2>
+        <div class="w-full mb-4">
+          <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
+        </div>
+        <div class="flex flex-col sm:flex-row justify-center pt-12 my-12 sm:my-4">
+          <div class="flex flex-col w-5/6 lg:w-1/4 mx-auto lg:mx-0 rounded-none lg:rounded-l-lg bg-white mt-4">
+            <div class="flex-1 bg-white text-gray-600 rounded-t rounded-b-none overflow-hidden shadow">
+              <div class="p-8 text-3xl font-bold text-center border-b-4">
+                Basic Guide
+              </div>
+              <ul class="w-full text-center text-sm">
+                <li class="border-b py-4">Downloadable PDF</li>
+                <li class="border-b py-4">Map & Itinerary</li>
+                <li class="border-b py-4">Expert Tips</li>
+              </ul>
+            </div>
+            <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
+              <div class="w-full pt-6 text-3xl text-gray-600 font-bold text-center">£9.99</div>
+              <div class="flex items-center justify-center">
+                <button class="mx-auto hover:underline gradient2 text-gray-800 font-bold rounded py-4 px-8 shadow-lg mt-6">
+                  Purchase Guide
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-col w-5/6 lg:w-1/3 mx-auto lg:mx-0 rounded-lg bg-white mt-4 sm:-mt-6 gradient shadow hover:shadow-lg z-10">
+            <div class="flex-1 rounded-t rounded-b-none overflow-hidden">
+              <div class="w-full p-8 text-3xl font-bold text-center">Standard Tour</div>
+              <ul class="w-full text-center text-base font-bold">
+                <li class="py-4">Guided Cave Tour</li>
+                <li class="py-4">Inclusive Lunch</li>
+                <li class="py-4">Local Transport</li>
+                <li class="py-4">Group Discount</li>
+              </ul>
+            </div>
+            <div class="flex-none mt-auto rounded-b rounded-t-none overflow-hidden p-6">
+              <div class="w-full pt-6 text-4xl font-bold text-center">
+                £49.99
+              </div>
+              <div class="flex items-center justify-center">
+                <button class="mx-auto hover:underline gradient2 text-gray-800 font-bold rounded py-4 px-8 shadow-lg mt-6">
+                  Book Tour
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-col w-5/6 lg:w-1/4 mx-auto lg:mx-0 rounded-none lg:rounded-r-lg bg-white mt-4">
+            <div class="flex-1 bg-white text-gray-600 rounded-t rounded-b-none overflow-hidden shadow">
+              <div class="p-8 text-3xl font-bold text-center border-b-4">
+                Premium Tour
+              </div>
+              <ul class="w-full text-center text-sm">
+                <li class="border-b py-4">Private Guide</li>
+                <li class="border-b py-4">All-day Tour</li>
+                <li class="border-b py-4">Exclusive Experiences</li>
+              </ul>
+            </div>
+            <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
+              <div class="w-full pt-6 text-3xl text-gray-600 font-bold text-center">
+                £99.99
+              </div>
+              <div class="flex items-center justify-center">
+                <button class="mx-auto hover:underline gradient2 text-gray-800 font-bold rounded py-4 px-8 shadow-lg mt-6">
+                  Book Tour
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="gradient w-full mx-auto text-center pt-6 pb-12">
+      <h2 class="w-full my-2 text-5xl font-black leading-tight text-center text-white">
+        Start Your Adventure Today!
+      </h2>
+      <div class="w-full mb-4">
+        <div class="h-1 mx-auto bg-white w-1/6 opacity-25 my-0 py-0 rounded-t"></div>
+      </div>
+      <h3 class="my-4 text-3xl font-extrabold">
+        Uncover the wonders of Phong Nha-Kẻ Bàng National Park.
+      </h3>
+      <button class="mx-auto hover:underline bg-white text-gray-800 font-bold rounded py-4 px-8 shadow-lg">
+        Get Started
+      </button>
+    </section>
+
+    <!--Footer-->
+    <footer class="bg-white">
+      <div class="container mx-auto mt-8 px-8">
+        <div class="w-full flex flex-col md:flex-row py-6">
+          <div class="flex-1 mb-6">
+            <a class="text-orange-600 no-underline hover:no-underline font-bold text-2xl lg:text-4xl" href="#">
+              <svg class="h-6 w-6 inline-block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path d="M13 8V0L8.11 5.87 3 12h4v8L17 8h-4z" />
+              </svg>
+              Phong Nha Explorer
+            </a>
+          </div>
+          <div class="flex-1">
+            <p class="uppercase font-extrabold text-gray-500 md:mb-6">Links</p>
+            <ul class="list-reset mb-6">
+              <li class="mt-2 inline-block mr-2 md:block md:mr-0">
+                <a href="#" class="font-light no-underline hover:underline text-gray-800 hover:text-orange-500">FAQ</a>
+              </li>
+              <li class="mt-2 inline-block mr-2 md:block md:mr-0">
+                <a href="#" class="font-light no-underline hover:underline text-gray-800 hover:text-orange-500">Help</a>
+              </li>
+              <li class="mt-2 inline-block mr-2 md:block md:mr-0">
+                <a href="#" class="font-light no-underline hover:underline text-gray-800 hover:text-orange-500">Support</a>
+              </li>
+            </ul>
+          </div>
+          <div class="flex-1">
+            <p class="uppercase font-extrabold text-gray-500 md:mb-6">Legal</p>
+            <ul class="list-reset mb-6">
+              <li class="mt-2 inline-block mr-2 md:block md:mr-0">
+                <a href="#" class="font-light no-underline hover:underline text-gray-800 hover:text-orange-500">Terms</a>
+              </li>
+              <li class="mt-2 inline-block mr-2 md:block md:mr-0">
+                <a href="#" class="font-light no-underline hover:underline text-gray-800 hover:text-orange-500">Privacy</a>
+              </li>
+            </ul>
+          </div>
+          <div class="flex-1">
+            <p class="uppercase font-extrabold text-gray-500 md:mb-6">Social</p>
+            <ul class="list-reset mb-6">
+              <li class="mt-2 inline-block mr-2 md:block md:mr-0">
+                <a href="#" class="font-light no-underline hover:underline text-gray-800 hover:text-orange-500">Facebook</a>
+              </li>
+              <li class="mt-2 inline-block mr-2 md:block md:mr-0">
+                <a href="#" class="font-light no-underline hover:underline text-gray-800 hover:text-orange-500">Linkedin</a>
+              </li>
+              <li class="mt-2 inline-block mr-2 md:block md:mr-0">
+                <a href="#" class="font-light no-underline hover:underline text-gray-800 hover:text-orange-500">Twitter</a>
+              </li>
+            </ul>
+          </div>
+          <div class="flex-1">
+            <p class="uppercase font-extrabold text-gray-500 md:mb-6">Company</p>
+            <ul class="list-reset mb-6">
+              <li class="mt-2 inline-block mr-2 md:block md:mr-0">
+                <a href="#" class="font-light no-underline hover:underline text-gray-800 hover:text-orange-500">Official Blog</a>
+              </li>
+              <li class="mt-2 inline-block mr-2 md:block md:mr-0">
+                <a href="#" class="font-light no-underline hover:underline text-gray-800 hover:text-orange-500">About Us</a>
+              </li>
+              <li class="mt-2 inline-block mr-2 md:block md:mr-0">
+                <a href="#" class="font-light no-underline hover:underline text-gray-800 hover:text-orange-500">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      /*Toggle dropdown list*/
+      /*https://gist.github.com/slavapas/593e8e50cf4cc16ac972afcbad4f70c8*/
+
+      var navMenuDiv = document.getElementById("nav-content");
+      var navMenu = document.getElementById("nav-toggle");
+
+      document.onclick = check;
+      function check(e) {
+        var target = (e && e.target) || (event && event.srcElement);
+
+        //Nav Menu
+        if (!checkParent(target, navMenuDiv)) {
+          // click NOT on the menu
+          if (checkParent(target, navMenu)) {
+            // click on the link
+            if (navMenuDiv.classList.contains("hidden")) {
+              navMenuDiv.classList.remove("hidden");
+            } else {
+              navMenuDiv.classList.add("hidden");
+            }
+          } else {
+            // click both outside link and outside menu, hide menu
+            navMenuDiv.classList.add("hidden");
+          }
+        }
+      }
+      function checkParent(t, elm) {
+        while (t.parentNode) {
+          if (t == elm) {
+            return true;
+          }
+          t = t.parentNode;
+        }
+        return false;
+      }
+    </script>
+  </body>
+</html>
